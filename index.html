@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moldova Digital School Framework – Resursă interactivă</title>
   <link rel="stylesheet" href="./styles.css" />
-  <script src="./scripts.js"></script>
 </head>
 <body>
   <header>
     <div class="header-inner">
       <div class="title-wrap">
         <h1>Moldova Digital School Framework</h1>
-        <p>Resursă digitală interactivă pentru prezentare, explorare independentă și lucru în echipă. Modelul explică școala digitală prin 4 domenii, 2 niveluri de evaluare și o logică de dezvoltare progresivă.</p>
+        <p>
+          Resursă digitală interactivă pentru prezentare, explorare independentă și lucru în echipă.
+          Modelul explică școala digitală prin 4 domenii, 2 niveluri de evaluare și o logică de dezvoltare progresivă.
+        </p>
       </div>
+
       <div class="top-actions">
         <button class="btn-primary" onclick="showSection('dashboard')">Hartă generală</button>
         <button class="btn-ghost" onclick="showSection('practice')">Cum folosim cadrul</button>
+        <a class="btn-ghost nav-link" href="./wheel.html">Roata MDSF</a>
       </div>
     </div>
   </header>
@@ -26,8 +30,15 @@
       <div class="grid">
         <div class="panel intro-card">
           <h2>Ce este MDSF, pe înțeles?</h2>
-          <p>MDSF este un model care ajută școlile să înțeleagă mai clar unde se află în transformarea digitală și cum pot avansa în mod realist, echilibrat și strategic.</p>
-          <p>Modelul spune că o școală digitală nu înseamnă doar echipamente. Înseamnă și leadership, pedagogie, competențe digitale, infrastructură și capacitatea de a învăța din date și experiență.</p>
+          <p>
+            MDSF este un model care ajută școlile să înțeleagă mai clar unde se află în transformarea digitală
+            și cum pot avansa în mod realist, echilibrat și strategic.
+          </p>
+          <p>
+            Modelul spune că o școală digitală nu înseamnă doar echipamente. Înseamnă și leadership,
+            pedagogie, competențe digitale, infrastructură și capacitatea de a învăța din date și experiență.
+          </p>
+
           <div class="pill-row">
             <div class="pill">leadership</div>
             <div class="pill">pedagogie</div>
@@ -42,14 +53,17 @@
               <strong>Conducere, guvernanță și managementul schimbării</strong>
               <span>Viziune, echipă digitală, planificare participativă, date, ownership.</span>
             </button>
+
             <button class="domain-btn" data-domain="pedagogy" onclick="activateDomain('pedagogy')">
               <strong>Predare, învățare și evaluare</strong>
               <span>Pedagogie centrată pe elev, evaluare formativă, colaborare, STEAM.</span>
             </button>
+
             <button class="domain-btn" data-domain="competence" onclick="activateDomain('competence')">
               <strong>Competență digitală și capacitate profesională</strong>
               <span>Dezvoltarea competențelor digitale ale profesorilor, elevilor și echipei.</span>
             </button>
+
             <button class="domain-btn" data-domain="infra" onclick="activateDomain('infra')">
               <strong>Infrastructură, platforme și ecosistem digital</strong>
               <span>Conectivitate, dispozitive, platforme, suport tehnic, interoperabilitate.</span>
@@ -59,27 +73,27 @@
 
         <div class="panel">
           <h2>Modelul de ansamblu</h2>
-          <p style="color:var(--muted)">Modelul combină două idei: școala trebuie să îndeplinească anumite condiții minime, dar și să avanseze gradual prin niveluri de maturitate. În plus, se bazează pe autoevaluare în echipă, dovezi și planificare.</p>
-
-          <section id="wheelSection" style="display:none">
-            <div class="panel">
-              <h2>Roata MDSF</h2>
-              <iframe
-                src="./wheel.html"
-                title="Roata MDSF"
-                class="wheel-frame">
-              </iframe>
-            </div>
-          </section>
+          <p style="color:var(--muted)">
+            Modelul combină două idei: școala trebuie să îndeplinească anumite condiții minime,
+            dar și să avanseze gradual prin niveluri de maturitate. În plus, se bazează pe autoevaluare
+            în echipă, dovezi și planificare.
+          </p>
 
           <div class="two-layer">
             <div class="layer-box">
               <h4>Primul nivel: standarde minime</h4>
-              <p>Acestea sunt condițiile de bază pe care toate școlile trebuie să le aibă, de exemplu conectivitate fiabilă, dispozitive esențiale, roluri clare și un plan de dezvoltare digitală.</p>
+              <p>
+                Acestea sunt condițiile de bază pe care toate școlile trebuie să le aibă, de exemplu
+                conectivitate fiabilă, dispozitive esențiale, roluri clare și un plan de dezvoltare digitală.
+              </p>
             </div>
+
             <div class="layer-box">
               <h4>Al doilea nivel: maturitate în dezvoltare</h4>
-              <p>Dincolo de condițiile minime, școala poate avansa de la practici izolate la inovare continuă, leadership și utilizare sistemică a tehnologiei și a datelor.</p>
+              <p>
+                Dincolo de condițiile minime, școala poate avansa de la practici izolate la inovare continuă,
+                leadership și utilizare sistemică a tehnologiei și a datelor.
+              </p>
             </div>
           </div>
 
@@ -94,45 +108,205 @@
 
       <div class="panel domain-content active" id="domain-leadership">
         <h2 style="color:var(--leadership)">Conducere, guvernanță și managementul schimbării</h2>
-        <p>Acest domeniu arată dacă școala are direcție, viziune, echipă și procese clare pentru a conduce schimbarea digitală, nu doar pentru a reacționa la ea.</p>
+        <p>
+          Acest domeniu arată dacă școala are direcție, viziune, echipă și procese clare pentru a conduce
+          schimbarea digitală, nu doar pentru a reacționa la ea.
+        </p>
         <div class="section-grid">
-          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>o viziune digitală comună;</li><li>o echipă care coordonează dezvoltarea;</li><li>planificare participativă;</li><li>decizii bazate pe date și dovezi;</li><li>asumare internă a schimbării.</li></ul></div>
-          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>școala folosește DigitalMirror sau altă formă de autoevaluare;</li><li>directorul nu decide singur, ci lucrează cu echipa;</li><li>există un plan, nu doar inițiative separate;</li><li>profesorii cunosc direcția și contribuie la implementare.</li></ul></div>
-          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Avem o viziune digitală comună sau doar activități izolate?</li><li>Există o echipă digitală activă?</li><li>Folosim datele pentru prioritizare?</li><li>Profesorii și elevii înțeleg și susțin direcția?</li></ul></div>
-          <div class="mini-card"><h4>Indicatori operaționali</h4><ul><li>plan strategic participativ;</li><li>luarea deciziilor bazate pe date;</li><li>organizație de învățare;</li><li>monitorizare și analiză;</li><li>sprijin, leadership și motivație.</li></ul></div>
+          <div class="mini-card">
+            <h4>Ce înseamnă, pe scurt</h4>
+            <ul>
+              <li>o viziune digitală comună;</li>
+              <li>o echipă care coordonează dezvoltarea;</li>
+              <li>planificare participativă;</li>
+              <li>decizii bazate pe date și dovezi;</li>
+              <li>asumare internă a schimbării.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Cum arată în practică</h4>
+            <ul>
+              <li>școala folosește DigitalMirror sau altă formă de autoevaluare;</li>
+              <li>directorul nu decide singur, ci lucrează cu echipa;</li>
+              <li>există un plan, nu doar inițiative separate;</li>
+              <li>profesorii cunosc direcția și contribuie la implementare.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Întrebări pentru școala noastră</h4>
+            <ul>
+              <li>Avem o viziune digitală comună sau doar activități izolate?</li>
+              <li>Există o echipă digitală activă?</li>
+              <li>Folosim datele pentru prioritizare?</li>
+              <li>Profesorii și elevii înțeleg și susțin direcția?</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Indicatori operaționali</h4>
+            <ul>
+              <li>plan strategic participativ;</li>
+              <li>luarea deciziilor bazate pe date;</li>
+              <li>organizație de învățare;</li>
+              <li>monitorizare și analiză;</li>
+              <li>sprijin, leadership și motivație.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div class="panel domain-content" id="domain-pedagogy">
         <h2 style="color:var(--pedagogy)">Predare, învățare și evaluare</h2>
-        <p>Acest domeniu urmărește dacă tehnologia schimbă cu adevărat felul în care elevii învață, colaborează, creează și sunt evaluați, nu doar felul în care este proiectat un slide sau un test.</p>
+        <p>
+          Acest domeniu urmărește dacă tehnologia schimbă cu adevărat felul în care elevii învață,
+          colaborează, creează și sunt evaluați, nu doar felul în care este proiectat un slide sau un test.
+        </p>
         <div class="section-grid">
-          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>învățare centrată pe elev;</li><li>proiecte și colaborare;</li><li>evaluare formativă și feedback;</li><li>STEAM și interdisciplinaritate;</li><li>creativitate și agency pentru elevi.</li></ul></div>
-          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>proiecte integrate în jurul unor probleme reale;</li><li>roluri mai active pentru elevi;</li><li>colaborare între profesori;</li><li>evaluare personalizată și autoevaluare;</li><li>folosirea tehnologiei pentru sens pedagogic, nu doar pentru prezentare.</li></ul></div>
-          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Elevii sunt mai activi și mai autonomi?</li><li>Profesorii proiectează împreună?</li><li>Se folosesc metode de evaluare centrate pe elev?</li><li>Există schimbări reale în experiența de învățare?</li></ul></div>
-          <div class="mini-card"><h4>Indicatori operaționali</h4><ul><li>educație integrată STEAM;</li><li>competența digitală a profesorilor în pedagogie;</li><li>schimbarea rolurilor profesorului și elevilor;</li><li>evaluare centrată pe elev;</li><li>schimbări structurale în curriculum și spații de învățare.</li></ul></div>
+          <div class="mini-card">
+            <h4>Ce înseamnă, pe scurt</h4>
+            <ul>
+              <li>învățare centrată pe elev;</li>
+              <li>proiecte și colaborare;</li>
+              <li>evaluare formativă și feedback;</li>
+              <li>STEAM și interdisciplinaritate;</li>
+              <li>creativitate și agency pentru elevi.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Cum arată în practică</h4>
+            <ul>
+              <li>proiecte integrate în jurul unor probleme reale;</li>
+              <li>roluri mai active pentru elevi;</li>
+              <li>colaborare între profesori;</li>
+              <li>evaluare personalizată și autoevaluare;</li>
+              <li>folosirea tehnologiei pentru sens pedagogic, nu doar pentru prezentare.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Întrebări pentru școala noastră</h4>
+            <ul>
+              <li>Elevii sunt mai activi și mai autonomi?</li>
+              <li>Profesorii proiectează împreună?</li>
+              <li>Se folosesc metode de evaluare centrate pe elev?</li>
+              <li>Există schimbări reale în experiența de învățare?</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Indicatori operaționali</h4>
+            <ul>
+              <li>educație integrată STEAM;</li>
+              <li>competența digitală a profesorilor în pedagogie;</li>
+              <li>schimbarea rolurilor profesorului și elevilor;</li>
+              <li>evaluare centrată pe elev;</li>
+              <li>schimbări structurale în curriculum și spații de învățare.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div class="panel domain-content" id="domain-competence">
         <h2 style="color:var(--competence)">Competență digitală și capacitate profesională</h2>
-        <p>Acest domeniu privește dezvoltarea oamenilor: profesori, elevi și echipe. Ideea centrală este că transformarea digitală cere competențe, mentorat, coaching și învățare continuă.</p>
+        <p>
+          Acest domeniu privește dezvoltarea oamenilor: profesori, elevi și echipe.
+          Ideea centrală este că transformarea digitală cere competențe, mentorat, coaching și învățare continuă.
+        </p>
         <div class="section-grid">
-          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>dezvoltare profesională structurată;</li><li>mentorat și coaching;</li><li>repere clare pentru profesori și elevi;</li><li>progres monitorizat în timp;</li><li>legătură între competențe și practica pedagogică.</li></ul></div>
-          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>școala folosește DigCompEdu pentru profesori;</li><li>școala folosește DigComp pentru elevi;</li><li>există formare, mentorat și sprijin colegial;</li><li>competențele digitale sunt integrate în predare și învățare.</li></ul></div>
-          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Știm unde se află profesorii noștri?</li><li>Știm unde se află elevii noștri?</li><li>Avem intervenții clare de dezvoltare?</li><li>Există sprijin, nu doar așteptări?</li></ul></div>
-          <div class="mini-card"><h4>Repere practice</h4><ul><li>standard de competență digitală a cadrelor didactice;</li><li>standard de competență digitală a elevilor;</li><li>mecanisme de mentorat și coaching;</li><li>aliniere la curriculum și obiective instituționale.</li></ul></div>
+          <div class="mini-card">
+            <h4>Ce înseamnă, pe scurt</h4>
+            <ul>
+              <li>dezvoltare profesională structurată;</li>
+              <li>mentorat și coaching;</li>
+              <li>repere clare pentru profesori și elevi;</li>
+              <li>progres monitorizat în timp;</li>
+              <li>legătură între competențe și practica pedagogică.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Cum arată în practică</h4>
+            <ul>
+              <li>școala folosește DigCompEdu pentru profesori;</li>
+              <li>școala folosește DigComp pentru elevi;</li>
+              <li>există formare, mentorat și sprijin colegial;</li>
+              <li>competențele digitale sunt integrate în predare și învățare.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Întrebări pentru școala noastră</h4>
+            <ul>
+              <li>Știm unde se află profesorii noștri?</li>
+              <li>Știm unde se află elevii noștri?</li>
+              <li>Avem intervenții clare de dezvoltare?</li>
+              <li>Există sprijin, nu doar așteptări?</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Repere practice</h4>
+            <ul>
+              <li>standard de competență digitală a cadrelor didactice;</li>
+              <li>standard de competență digitală a elevilor;</li>
+              <li>mecanisme de mentorat și coaching;</li>
+              <li>aliniere la curriculum și obiective instituționale.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div class="panel domain-content" id="domain-infra">
         <h2 style="color:var(--infra)">Infrastructură, platforme și ecosistem digital</h2>
-        <p>Acest domeniu privește fundația tehnologică: internet, dispozitive, platforme, suport tehnic, securitate și integrarea coerentă a serviciilor digitale din școală.</p>
+        <p>
+          Acest domeniu privește fundația tehnologică: internet, dispozitive, platforme, suport tehnic,
+          securitate și integrarea coerentă a serviciilor digitale din școală.
+        </p>
         <div class="section-grid">
-          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>conectivitate și dispozitive de bază;</li><li>platforme și software adecvate;</li><li>suport tehnic și management IT;</li><li>interoperabilitate și securitate;</li><li>infrastructură care sprijină pedagogia.</li></ul></div>
-          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>internet funcțional și stabil;</li><li>dispozitive utile în clasă și în laborator;</li><li>ecrane interactive, seturi mobile, resurse STEM/robotică;</li><li>sisteme clare de administrare și suport.</li></ul></div>
-          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Avem suficientă infrastructură pentru ceea ce ne propunem?</li><li>Platformele noastre se completează sau se dublează haotic?</li><li>Există suport tehnic și reguli clare?</li><li>Infrastructura susține pedagogia sau rămâne subutilizată?</li></ul></div>
-          <div class="mini-card"><h4>Elemente-cheie</h4><ul><li>calculatoare ale profesorilor;</li><li>laboratoare de informatică;</li><li>seturi mobile și ecrane interactive;</li><li>dispozitive STEM / robotică;</li><li>licențe software și management IT.</li></ul></div>
+          <div class="mini-card">
+            <h4>Ce înseamnă, pe scurt</h4>
+            <ul>
+              <li>conectivitate și dispozitive de bază;</li>
+              <li>platforme și software adecvate;</li>
+              <li>suport tehnic și management IT;</li>
+              <li>interoperabilitate și securitate;</li>
+              <li>infrastructură care sprijină pedagogia.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Cum arată în practică</h4>
+            <ul>
+              <li>internet funcțional și stabil;</li>
+              <li>dispozitive utile în clasă și în laborator;</li>
+              <li>ecrane interactive, seturi mobile, resurse STEM/robotică;</li>
+              <li>sisteme clare de administrare și suport.</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Întrebări pentru școala noastră</h4>
+            <ul>
+              <li>Avem suficientă infrastructură pentru ceea ce ne propunem?</li>
+              <li>Platformele noastre se completează sau se dublează haotic?</li>
+              <li>Există suport tehnic și reguli clare?</li>
+              <li>Infrastructura susține pedagogia sau rămâne subutilizată?</li>
+            </ul>
+          </div>
+
+          <div class="mini-card">
+            <h4>Elemente-cheie</h4>
+            <ul>
+              <li>calculatoare ale profesorilor;</li>
+              <li>laboratoare de informatică;</li>
+              <li>seturi mobile și ecrane interactive;</li>
+              <li>dispozitive STEM / robotică;</li>
+              <li>licențe software și management IT.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -140,7 +314,11 @@
     <section id="practiceSection" style="display:none">
       <div class="panel toolbox">
         <h2>Cum folosim MDSF în practică</h2>
-        <p style="color:var(--muted)">Această resursă poate fi folosită atât în prezentare, cât și în lucru de echipă. Scopul ei nu este doar să explice cadrul, ci să ajute școala să pornească o conversație strategică.</p>
+        <p style="color:var(--muted)">
+          Această resursă poate fi folosită atât în prezentare, cât și în lucru de echipă.
+          Scopul ei nu este doar să explice cadrul, ci să ajute școala să pornească o conversație strategică.
+        </p>
+
         <div class="tool-steps">
           <div class="step"><div class="num">1</div><p>Ne uităm la cele 4 domenii și vedem unde avem deja puncte forte.</p></div>
           <div class="step"><div class="num">2</div><p>Discutăm în echipă unde avem blocaje, lipsuri sau diferențe de percepție.</p></div>
@@ -150,7 +328,10 @@
           <div class="step"><div class="num">6</div><p>Revenim periodic și monitorizăm progresul, nu doar bifăm activități.</p></div>
         </div>
 
-        <div class="callout">Mesaj-cheie: MDSF nu este doar un document de conformitate. Este un instrument de reflecție, prioritizare și dezvoltare instituțională.</div>
+        <div class="callout">
+          Mesaj-cheie: MDSF nu este doar un document de conformitate. Este un instrument de reflecție,
+          prioritizare și dezvoltare instituțională.
+        </div>
 
         <div class="explore-questions">
           <details open>
@@ -163,17 +344,32 @@
               <li>Cum ne asigurăm că infrastructura, competențele și pedagogia merg împreună?</li>
             </ul>
           </details>
+
           <details>
             <summary>Cum folosim roata în sesiune</summary>
-            <p>Facilitatorul poate porni de la roata generală și întreba: „Dacă ați colora sincer școala voastră astăzi, ce arii ar fi mai aproape de centru și care ar ajunge mai spre exterior?” Apoi discuția poate merge pe domenii, exemple și dovezi.</p>
+            <p>
+              Facilitatorul poate porni de la roata generală și întreba: „Dacă ați colora sincer școala
+              voastră astăzi, ce arii ar fi mai aproape de centru și care ar ajunge mai spre exterior?”
+              Apoi discuția poate merge pe domenii, exemple și dovezi.
+            </p>
           </details>
+
           <details>
             <summary>Cum se leagă de DigitalMirror</summary>
-            <p>DigitalMirror oferă o logică de autoevaluare în echipă, bazată pe dovezi și niveluri. MDSF păstrează această logică, dar o extinde într-un cadru mai larg, cu 4 domenii și un model în două niveluri: standarde minime plus maturitate în dezvoltare.</p>
+            <p>
+              DigitalMirror oferă o logică de autoevaluare în echipă, bazată pe dovezi și niveluri.
+              MDSF păstrează această logică, dar o extinde într-un cadru mai larg, cu 4 domenii și un model
+              în două niveluri: standarde minime plus maturitate în dezvoltare.
+            </p>
           </details>
+
           <details>
             <summary>Cum se poate folosi independent după sesiune</summary>
-            <p>Participanții pot reveni la această resursă pentru a explora separat domeniile, a folosi întrebările de reflecție în echipă și a pregăti discuții despre priorități, planificare strategică și continuarea dezvoltării digitale.</p>
+            <p>
+              Participanții pot reveni la această resursă pentru a explora separat domeniile, a folosi
+              întrebările de reflecție în echipă și a pregăti discuții despre priorități, planificare strategică
+              și continuarea dezvoltării digitale.
+            </p>
           </details>
         </div>
       </div>
@@ -181,7 +377,10 @@
   </main>
 
   <footer>
-    Resursă digitală interactivă în HTML pentru explicarea și explorarea Moldova Digital School Framework în sesiuni de prezentare, reflecție și planificare în echipă.
+    Resursă digitală interactivă în HTML pentru explicarea și explorarea Moldova Digital School Framework
+    în sesiuni de prezentare, reflecție și planificare în echipă.
   </footer>
+
+  <script src="./scripts.js"></script>
 </body>
 </html>
