@@ -189,28 +189,22 @@ main {
   margin-top: 10px;
 }
 
-.wheel-box {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 420px;
-  padding: 8px;
+.wheel-embed-block {
+  margin-top: 20px;
 }
 
-svg text { font-family: Inter, Segoe UI, Arial, sans-serif; }
-
-.wheel-legend {
-  display: grid;
-  gap: 10px;
+.wheel-embed-text {
+  color: var(--muted);
+  margin-bottom: 12px;
 }
 
 .wheel-frame {
   width: 100%;
-  min-height: 900px;
+  min-height: 980px;
   border: none;
   border-radius: 18px;
   background: #fff;
+  display: block;
 }
 
 .legend-item {
