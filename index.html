@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moldova Digital School Framework – Resursă interactivă</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #1f2430;
+      --muted: #596275;
+      --border: #d8deea;
+      --shadow: 0 12px 32px rgba(36, 53, 98, 0.08);
+
+      /* Paleta furnizată de utilizator */
+      --c1: #245262; /* teal deep */
+      --c2: #10ECD2; /* aqua */
+      --c3: #4C1C57; /* purple deep */
+      --c4: #E51491; /* magenta */
+      --c5: #362B2A; /* brown dark */
+
+      --primary: var(--c1);
+      --leadership: var(--c1);
+      --pedagogy: var(--c2);
+      --competence: var(--c4);
+      --infra: var(--c3);
+      --dark: var(--c5);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--c1) 0%, var(--c3) 100%);
+      color: white;
+      padding: 28px 20px 22px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 8px 24px rgba(24, 31, 49, 0.16);
+    }
+
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .title-wrap h1 {
+      margin: 0;
+      font-size: 1.62rem;
+      line-height: 1.2;
+    }
+
+    .title-wrap p {
+      margin: 8px 0 0;
+      color: rgba(255,255,255,0.92);
+      max-width: 860px;
+      font-size: 0.98rem;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-primary:hover,
+    .btn-ghost:hover,
+    .small-btn:hover,
+    .domain-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1320px;
+      margin: 24px auto;
+      padding: 0 20px 36px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .panel h2, .panel h3 { margin-top: 0; }
+
+    .intro-card p { color: var(--muted); }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #eff3f6;
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .domain-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .domain-btn {
+      text-align: left;
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      background: white;
+      min-height: 96px;
+      box-shadow: 0 4px 12px rgba(19, 31, 60, 0.04);
+    }
+
+    .domain-btn strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.97rem;
+    }
+
+    .domain-btn span {
+      color: var(--muted);
+      font-size: 0.89rem;
+      display: block;
+    }
+
+    .domain-btn[data-domain="leadership"].active,
+    .domain-btn[data-domain="leadership"]:hover { background: linear-gradient(135deg, #245262 0%, #2e697c 100%); color: white; border-color: transparent; }
+    .domain-btn[data-domain="pedagogy"].active,
+    .domain-btn[data-domain="pedagogy"]:hover { background: linear-gradient(135deg, #0bc9b2 0%, #10ECD2 100%); color: #072b2a; border-color: transparent; }
+    .domain-btn[data-domain="competence"].active,
+    .domain-btn[data-domain="competence"]:hover { background: linear-gradient(135deg, #cb137f 0%, #E51491 100%); color: white; border-color: transparent; }
+    .domain-btn[data-domain="infra"].active,
+    .domain-btn[data-domain="infra"]:hover { background: linear-gradient(135deg, #4C1C57 0%, #6b2f79 100%); color: white; border-color: transparent; }
+
+    .domain-btn.active span,
+    .domain-btn:hover span { color: inherit; opacity: 0.92; }
+
+    .wheel-wrap {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 22px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .wheel-box {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 420px;
+      padding: 8px;
+    }
+
+    svg text { font-family: Inter, Segoe UI, Arial, sans-serif; }
+
+    .wheel-legend {
+      display: grid;
+      gap: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fbfcff;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex: 0 0 14px;
+    }
+
+    .legend-item p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .two-layer {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .layer-box {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: #fafcff;
+    }
+
+    .layer-box h4 { margin: 0 0 8px; }
+    .layer-box p, .layer-box li { color: var(--muted); }
+
+    .domain-content {
+      margin-top: 18px;
+      display: none;
+    }
+
+    .domain-content.active { display: block; }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fcfdff;
+    }
+
+    .mini-card h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .mini-card ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    .mini-card li {
+      margin: 5px 0;
+      color: var(--muted);
+    }
+
+    .level-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .level {
+      text-align: center;
+      padding: 10px 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.84rem;
+    }
+
+    .level small {
+      display: block;
+      font-weight: 500;
+      margin-top: 4px;
+      line-height: 1.25;
+    }
+
+    .toolbox { margin-top: 20px; }
+
+    .tool-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .step {
+      border-radius: 16px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 12px;
+    }
+
+    .step .num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #eef3f6;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .callout {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #f3eef5;
+      border: 1px solid #dfd1e5;
+      color: var(--c3);
+      font-weight: 700;
+    }
+
+    .small-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .small-btn {
+      background: #edf1f4;
+      color: var(--primary);
+    }
+
+    .explore-questions {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      padding: 10px 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    details p, details li { color: var(--muted); }
+
+    footer {
+      max-width: 1320px;
+      margin: 8px auto 32px;
+      padding: 0 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1180px) {
+      .grid, .wheel-wrap, .tool-steps { grid-template-columns: 1fr; }
+      .section-grid, .two-layer { grid-template-columns: 1fr; }
+      .wheel-box { min-height: 360px; }
+      .wheel-box svg { width: 100%; max-width: 420px; height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="title-wrap">
+        <h1>Moldova Digital School Framework</h1>
+        <p>Resursă digitală interactivă pentru prezentare, explorare independentă și lucru în echipă. Modelul explică școala digitală prin 4 domenii, 2 niveluri de evaluare și o logică de dezvoltare progresivă.</p>
+      </div>
+      <div class="top-actions">
+        <button class="btn-primary" onclick="showSection('dashboard')">Hartă generală</button>
+        <button class="btn-ghost" onclick="showSection('practice')">Cum folosim cadrul</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="dashboardSection">
+      <div class="grid">
+        <div class="panel intro-card">
+          <h2>Ce este MDSF, pe înțeles?</h2>
+          <p>MDSF este un model care ajută școlile să înțeleagă mai clar unde se află în transformarea digitală și cum pot avansa în mod realist, echilibrat și strategic.</p>
+          <p>Modelul spune că o școală digitală nu înseamnă doar echipamente. Înseamnă și leadership, pedagogie, competențe digitale, infrastructură și capacitatea de a învăța din date și experiență.</p>
+          <div class="pill-row">
+            <div class="pill">leadership</div>
+            <div class="pill">pedagogie</div>
+            <div class="pill">competențe digitale</div>
+            <div class="pill">infrastructură</div>
+            <div class="pill">date și planificare</div>
+          </div>
+
+          <h3 style="margin-top:18px">Explorează domeniile</h3>
+          <div class="domain-buttons">
+            <button class="domain-btn active" data-domain="leadership" onclick="activateDomain('leadership')">
+              <strong>Conducere, guvernanță și managementul schimbării</strong>
+              <span>Viziune, echipă digitală, planificare participativă, date, ownership.</span>
+            </button>
+            <button class="domain-btn" data-domain="pedagogy" onclick="activateDomain('pedagogy')">
+              <strong>Predare, învățare și evaluare</strong>
+              <span>Pedagogie centrată pe elev, evaluare formativă, colaborare, STEAM.</span>
+            </button>
+            <button class="domain-btn" data-domain="competence" onclick="activateDomain('competence')">
+              <strong>Competență digitală și capacitate profesională</strong>
+              <span>Dezvoltarea competențelor digitale ale profesorilor, elevilor și echipei.</span>
+            </button>
+            <button class="domain-btn" data-domain="infra" onclick="activateDomain('infra')">
+              <strong>Infrastructură, platforme și ecosistem digital</strong>
+              <span>Conectivitate, dispozitive, platforme, suport tehnic, interoperabilitate.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Modelul de ansamblu</h2>
+          <p style="color:var(--muted)">Modelul combină două idei: școala trebuie să îndeplinească anumite condiții minime, dar și să avanseze gradual prin niveluri de maturitate. În plus, se bazează pe autoevaluare în echipă, dovezi și planificare.</p>
+
+          <div class="wheel-wrap">
+            <div class="wheel-box">
+              <svg width="420" height="420" viewBox="0 0 420 420" aria-label="Roată conceptuală inspirată din SELFIE și DigitalMirror">
+                <!-- inele -->
+                <circle cx="210" cy="210" r="184" fill="#fafbff" stroke="#e0e6ef" stroke-width="2"/>
+                <circle cx="210" cy="210" r="148" fill="#ffffff" stroke="#e0e6ef" stroke-width="2"/>
+                <circle cx="210" cy="210" r="112" fill="#fafbff" stroke="#e0e6ef" stroke-width="2"/>
+                <circle cx="210" cy="210" r="76" fill="#ffffff" stroke="#e0e6ef" stroke-width="2"/>
+                <circle cx="210" cy="210" r="40" fill="#f0eef5" stroke="#d9ddea" stroke-width="2"/>
+
+                <!-- 4 sectoare clare -->
+                <path d="M210 210 L210 26 A184 184 0 0 1 394 210 Z" fill="#10ECD2" opacity="0.92"></path>
+                <path d="M210 210 L394 210 A184 184 0 0 1 210 394 Z" fill="#E51491" opacity="0.92"></path>
+                <path d="M210 210 L210 394 A184 184 0 0 1 26 210 Z" fill="#4C1C57" opacity="0.88"></path>
+                <path d="M210 210 L26 210 A184 184 0 0 1 210 26 Z" fill="#245262" opacity="0.92"></path>
+
+                <!-- raze -->
+                <line x1="210" y1="210" x2="210" y2="26" stroke="#ffffff" stroke-width="4"></line>
+                <line x1="210" y1="210" x2="394" y2="210" stroke="#ffffff" stroke-width="4"></line>
+                <line x1="210" y1="210" x2="210" y2="394" stroke="#ffffff" stroke-width="4"></line>
+                <line x1="210" y1="210" x2="26" y2="210" stroke="#ffffff" stroke-width="4"></line>
+
+                <!-- centru -->
+                <circle cx="210" cy="210" r="46" fill="rgba(255,255,255,0.92)" stroke="#d9ddea" stroke-width="2"></circle>
+                <text x="210" y="204" text-anchor="middle" font-size="22" font-weight="800" fill="#245262">MDSF</text>
+                <text x="210" y="224" text-anchor="middle" font-size="12.5" font-weight="600" fill="#5b6476">model integrat</text>
+
+                <!-- niveluri mutate pe marginea de sus pentru lizibilitate -->
+                <text x="210" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 5</text>
+                <text x="210" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 4</text>
+                <text x="210" y="114" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 3</text>
+                <text x="210" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 2</text>
+                <text x="210" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 1</text>
+
+                <!-- etichete reposiționate -->
+                <text x="210" y="90" text-anchor="middle" font-size="14" font-weight="800" fill="#0d302e">Predare și învățare</text>
+                <text x="318" y="186" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Competență</text>
+                <text x="318" y="204" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">digitală și</text>
+                <text x="318" y="222" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">capacitate</text>
+                <text x="318" y="240" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">profesională</text>
+                <text x="210" y="336" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Infrastructură, platforme</text>
+                <text x="210" y="354" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">și ecosistem digital</text>
+                <text x="98" y="186" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Conducere,</text>
+                <text x="98" y="204" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">guvernanță</text>
+                <text x="98" y="222" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">și managementul</text>
+                <text x="98" y="240" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">schimbării</text>
+              </svg>
+            </div>
+
+            <div class="wheel-legend">
+              <div class="legend-item">
+                <div class="dot" style="background:var(--c1)"></div>
+                <div>
+                  <strong>Domeniul 1</strong>
+                  <p>Conducere, guvernanță și managementul schimbării: direcție, viziune, echipă, date, ownership și planificare strategică.</p>
+                </div>
+              </div>
+              <div class="legend-item">
+                <div class="dot" style="background:var(--c2)"></div>
+                <div>
+                  <strong>Domeniul 2</strong>
+                  <p>Predare, învățare și evaluare: schimbarea pedagogică reală, nu doar utilizarea instrumentelor digitale.</p>
+                </div>
+              </div>
+              <div class="legend-item">
+                <div class="dot" style="background:var(--c4)"></div>
+                <div>
+                  <strong>Domeniul 3</strong>
+                  <p>Competență digitală și capacitate profesională: dezvoltarea profesorilor, elevilor și a echipei școlii.</p>
+                </div>
+              </div>
+              <div class="legend-item">
+                <div class="dot" style="background:var(--c3)"></div>
+                <div>
+                  <strong>Domeniul 4</strong>
+                  <p>Infrastructură, platforme și ecosistem digital: fundația tehnologică ce susține pedagogia și dezvoltarea instituțională.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="two-layer">
+            <div class="layer-box">
+              <h4>Primul nivel: standarde minime</h4>
+              <p>Acestea sunt condițiile de bază pe care toate școlile trebuie să le aibă, de exemplu conectivitate fiabilă, dispozitive esențiale, roluri clare și un plan de dezvoltare digitală.</p>
+            </div>
+            <div class="layer-box">
+              <h4>Al doilea nivel: maturitate în dezvoltare</h4>
+              <p>Dincolo de condițiile minime, școala poate avansa de la practici izolate la inovare continuă, leadership și utilizare sistemică a tehnologiei și a datelor.</p>
+            </div>
+          </div>
+
+          <div class="small-actions">
+            <button class="small-btn" onclick="activateDomain('leadership')">Deschide domeniul 1</button>
+            <button class="small-btn" onclick="activateDomain('pedagogy')">Deschide domeniul 2</button>
+            <button class="small-btn" onclick="activateDomain('competence')">Deschide domeniul 3</button>
+            <button class="small-btn" onclick="activateDomain('infra')">Deschide domeniul 4</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel domain-content active" id="domain-leadership">
+        <h2 style="color:var(--leadership)">Conducere, guvernanță și managementul schimbării</h2>
+        <p>Acest domeniu arată dacă școala are direcție, viziune, echipă și procese clare pentru a conduce schimbarea digitală, nu doar pentru a reacționa la ea.</p>
+        <div class="section-grid">
+          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>o viziune digitală comună;</li><li>o echipă care coordonează dezvoltarea;</li><li>planificare participativă;</li><li>decizii bazate pe date și dovezi;</li><li>asumare internă a schimbării.</li></ul></div>
+          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>școala folosește DigitalMirror sau altă formă de autoevaluare;</li><li>directorul nu decide singur, ci lucrează cu echipa;</li><li>există un plan, nu doar inițiative separate;</li><li>profesorii cunosc direcția și contribuie la implementare.</li></ul></div>
+          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Avem o viziune digitală comună sau doar activități izolate?</li><li>Există o echipă digitală activă?</li><li>Folosim datele pentru prioritizare?</li><li>Profesorii și elevii înțeleg și susțin direcția?</li></ul></div>
+          <div class="mini-card"><h4>Indicatori operaționali</h4><ul><li>plan strategic participativ;</li><li>luarea deciziilor bazate pe date;</li><li>organizație de învățare;</li><li>monitorizare și analiză;</li><li>sprijin, leadership și motivație.</li></ul></div>
+        </div>
+      </div>
+
+      <div class="panel domain-content" id="domain-pedagogy">
+        <h2 style="color:var(--pedagogy)">Predare, învățare și evaluare</h2>
+        <p>Acest domeniu urmărește dacă tehnologia schimbă cu adevărat felul în care elevii învață, colaborează, creează și sunt evaluați, nu doar felul în care este proiectat un slide sau un test.</p>
+        <div class="section-grid">
+          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>învățare centrată pe elev;</li><li>proiecte și colaborare;</li><li>evaluare formativă și feedback;</li><li>STEAM și interdisciplinaritate;</li><li>creativitate și agency pentru elevi.</li></ul></div>
+          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>proiecte integrate în jurul unor probleme reale;</li><li>roluri mai active pentru elevi;</li><li>colaborare între profesori;</li><li>evaluare personalizată și autoevaluare;</li><li>folosirea tehnologiei pentru sens pedagogic, nu doar pentru prezentare.</li></ul></div>
+          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Elevii sunt mai activi și mai autonomi?</li><li>Profesorii proiectează împreună?</li><li>Se folosesc metode de evaluare centrate pe elev?</li><li>Există schimbări reale în experiența de învățare?</li></ul></div>
+          <div class="mini-card"><h4>Indicatori operaționali</h4><ul><li>educație integrată STEAM;</li><li>competența digitală a profesorilor în pedagogie;</li><li>schimbarea rolurilor profesorului și elevilor;</li><li>evaluare centrată pe elev;</li><li>schimbări structurale în curriculum și spații de învățare.</li></ul></div>
+        </div>
+      </div>
+
+      <div class="panel domain-content" id="domain-competence">
+        <h2 style="color:var(--competence)">Competență digitală și capacitate profesională</h2>
+        <p>Acest domeniu privește dezvoltarea oamenilor: profesori, elevi și echipe. Ideea centrală este că transformarea digitală cere competențe, mentorat, coaching și învățare continuă.</p>
+        <div class="section-grid">
+          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>dezvoltare profesională structurată;</li><li>mentorat și coaching;</li><li>repere clare pentru profesori și elevi;</li><li>progres monitorizat în timp;</li><li>legătură între competențe și practica pedagogică.</li></ul></div>
+          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>școala folosește DigCompEdu pentru profesori;</li><li>școala folosește DigComp pentru elevi;</li><li>există formare, mentorat și sprijin colegial;</li><li>competențele digitale sunt integrate în predare și învățare.</li></ul></div>
+          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Știm unde se află profesorii noștri?</li><li>Știm unde se află elevii noștri?</li><li>Avem intervenții clare de dezvoltare?</li><li>Există sprijin, nu doar așteptări?</li></ul></div>
+          <div class="mini-card"><h4>Repere practice</h4><ul><li>standard de competență digitală a cadrelor didactice;</li><li>standard de competență digitală a elevilor;</li><li>mecanisme de mentorat și coaching;</li><li>aliniere la curriculum și obiective instituționale.</li></ul></div>
+        </div>
+      </div>
+
+      <div class="panel domain-content" id="domain-infra">
+        <h2 style="color:var(--infra)">Infrastructură, platforme și ecosistem digital</h2>
+        <p>Acest domeniu privește fundația tehnologică: internet, dispozitive, platforme, suport tehnic, securitate și integrarea coerentă a serviciilor digitale din școală.</p>
+        <div class="section-grid">
+          <div class="mini-card"><h4>Ce înseamnă, pe scurt</h4><ul><li>conectivitate și dispozitive de bază;</li><li>platforme și software adecvate;</li><li>suport tehnic și management IT;</li><li>interoperabilitate și securitate;</li><li>infrastructură care sprijină pedagogia.</li></ul></div>
+          <div class="mini-card"><h4>Cum arată în practică</h4><ul><li>internet funcțional și stabil;</li><li>dispozitive utile în clasă și în laborator;</li><li>ecrane interactive, seturi mobile, resurse STEM/robotică;</li><li>sisteme clare de administrare și suport.</li></ul></div>
+          <div class="mini-card"><h4>Întrebări pentru școala noastră</h4><ul><li>Avem suficientă infrastructură pentru ceea ce ne propunem?</li><li>Platformele noastre se completează sau se dublează haotic?</li><li>Există suport tehnic și reguli clare?</li><li>Infrastructura susține pedagogia sau rămâne subutilizată?</li></ul></div>
+          <div class="mini-card"><h4>Elemente-cheie</h4><ul><li>calculatoare ale profesorilor;</li><li>laboratoare de informatică;</li><li>seturi mobile și ecrane interactive;</li><li>dispozitive STEM / robotică;</li><li>licențe software și management IT.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="practiceSection" style="display:none">
+      <div class="panel toolbox">
+        <h2>Cum folosim MDSF în practică</h2>
+        <p style="color:var(--muted)">Această resursă poate fi folosită atât în prezentare, cât și în lucru de echipă. Scopul ei nu este doar să explice cadrul, ci să ajute școala să pornească o conversație strategică.</p>
+        <div class="tool-steps">
+          <div class="step"><div class="num">1</div><p>Ne uităm la cele 4 domenii și vedem unde avem deja puncte forte.</p></div>
+          <div class="step"><div class="num">2</div><p>Discutăm în echipă unde avem blocaje, lipsuri sau diferențe de percepție.</p></div>
+          <div class="step"><div class="num">3</div><p>Colectăm dovezi: documente, exemple, date, practici, observații.</p></div>
+          <div class="step"><div class="num">4</div><p>Identificăm priorități: ce este urgent, ce este important, ce este realist.</p></div>
+          <div class="step"><div class="num">5</div><p>Planificăm pașii următori: acțiuni, responsabili, resurse, termene.</p></div>
+          <div class="step"><div class="num">6</div><p>Revenim periodic și monitorizăm progresul, nu doar bifăm activități.</p></div>
+        </div>
+
+        <div class="callout">Mesaj-cheie: MDSF nu este doar un document de conformitate. Este un instrument de reflecție, prioritizare și dezvoltare instituțională.</div>
+
+        <div class="explore-questions">
+          <details open>
+            <summary>Întrebări de lucru pentru echipa școlii</summary>
+            <ul>
+              <li>În ce domeniu suntem mai puternici?</li>
+              <li>În ce domeniu avem cel mai mare decalaj?</li>
+              <li>Unde avem deja dovezi și unde avem doar impresii?</li>
+              <li>Ce prioritate ar produce cel mai mult progres în următoarele 6 luni?</li>
+              <li>Cum ne asigurăm că infrastructura, competențele și pedagogia merg împreună?</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Cum folosim roata în sesiune</summary>
+            <p>Facilitatorul poate porni de la roata generală și întreba: „Dacă ați colora sincer școala voastră astăzi, ce arii ar fi mai aproape de centru și care ar ajunge mai spre exterior?” Apoi discuția poate merge pe domenii, exemple și dovezi.</p>
+          </details>
+          <details>
+            <summary>Cum se leagă de DigitalMirror</summary>
+            <p>DigitalMirror oferă o logică de autoevaluare în echipă, bazată pe dovezi și niveluri. MDSF păstrează această logică, dar o extinde într-un cadru mai larg, cu 4 domenii și un model în două niveluri: standarde minime plus maturitate în dezvoltare.</p>
+          </details>
+          <details>
+            <summary>Cum se poate folosi independent după sesiune</summary>
+            <p>Participanții pot reveni la această resursă pentru a explora separat domeniile, a folosi întrebările de reflecție în echipă și a pregăti discuții despre priorități, planificare strategică și continuarea dezvoltării digitale.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Resursă digitală interactivă în HTML pentru explicarea și explorarea Moldova Digital School Framework în sesiuni de prezentare, reflecție și planificare în echipă.
+  </footer>
+</body>
+</html>
