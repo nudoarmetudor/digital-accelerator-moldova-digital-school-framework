@@ -205,6 +205,14 @@ svg text { font-family: Inter, Segoe UI, Arial, sans-serif; }
   gap: 10px;
 }
 
+.wheel-frame {
+  width: 100%;
+  min-height: 900px;
+  border: none;
+  border-radius: 18px;
+  background: #fff;
+}
+
 .legend-item {
   display: flex;
   align-items: flex-start;
