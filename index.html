@@ -70,54 +70,68 @@
           </div>
         </div>
 
-        <div class="panel">
-          <h2>Modelul de ansamblu</h2>
-          <p style="color:var(--muted)">
-            Modelul combină două idei: școala trebuie să îndeplinească anumite condiții minime,
-            dar și să avanseze gradual prin niveluri de maturitate. În plus, se bazează pe autoevaluare
-            în echipă, dovezi și planificare.
-          </p>
+        <div class="wheel-embed-block">
+  <h3>Roata MDSF + DigitalMirror</h3>
+  <p class="wheel-embed-text">
+    15 parametri, organizați pe 3 arii inspirate din DigitalMirror, fiecare cu 5 niveluri:
+    nivelul 1 = standarde minime / bază de dotare și organizare, nivelurile 2–5 = progres inspirat din descriptorii DigitalMirror.
+  </p>
 
-          <div class="two-layer">
-            <div class="layer-box">
-              <h4>Primul nivel: standarde minime</h4>
-              <p>
-                Acestea sunt condițiile de bază pe care toate școlile trebuie să le aibă, de exemplu
-                conectivitate fiabilă, dispozitive esențiale, roluri clare și un plan de dezvoltare digitală.
-              </p>
-            </div>
+  <div id="wheel-app" class="wheel-app">
+    <div class="wheel-layout">
+      <div class="wheel-panel">
+        <svg id="maturityWheel"
+             class="maturity-wheel"
+             viewBox="-260 -260 520 520"
+             role="img"
+             aria-labelledby="wheelTitle wheelDesc">
+          <title id="wheelTitle">Roata maturității digitale</title>
+          <desc id="wheelDesc">
+            Roată interactivă cu 15 parametri și 5 niveluri. La hover apare descriptorul parametrului și al nivelului.
+          </desc>
 
-            <div class="layer-box">
-              <h4>Al doilea nivel: maturitate în dezvoltare</h4>
-              <p>
-                Dincolo de condițiile minime, școala poate avansa de la practici izolate la inovare continuă,
-                leadership și utilizare sistemică a tehnologiei și a datelor.
-              </p>
-            </div>
-          </div>
+          <g class="grid-rings">
+            <circle r="220" class="ring ring-5"></circle>
+            <circle r="176" class="ring ring-4"></circle>
+            <circle r="132" class="ring ring-3"></circle>
+            <circle r="88" class="ring ring-2"></circle>
+            <circle r="44" class="ring ring-1"></circle>
+          </g>
 
-          <div class="small-actions">
-            <button class="small-btn" onclick="activateDomain('leadership')">Deschide domeniul 1</button>
-            <button class="small-btn" onclick="activateDomain('pedagogy')">Deschide domeniul 2</button>
-            <button class="small-btn" onclick="activateDomain('competence')">Deschide domeniul 3</button>
-            <button class="small-btn" onclick="activateDomain('infra')">Deschide domeniul 4</button>
-          </div>
+          <g class="grid-lines" id="gridLines"></g>
+          <g id="wheelSegments"></g>
 
-          <!-- ROATA INTEGRATĂ DIRECT ÎN HARTA GENERALĂ -->
-          <div class="wheel-embed-block">
-            <h3>Roata MDSF + DigitalMirror</h3>
-            <p class="wheel-embed-text">
-              15 parametri, organizați pe 3 arii inspirate din DigitalMirror, fiecare cu 5 niveluri:
-              nivelul 1 = standarde minime / bază de dotare și organizare, nivelurile 2–5 = progres inspirat din descriptorii DigitalMirror.
-            </p>
+          <g class="level-labels">
+            <text x="0" y="-198" text-anchor="middle">Nivel 5</text>
+            <text x="0" y="-154" text-anchor="middle">Nivel 4</text>
+            <text x="0" y="-110" text-anchor="middle">Nivel 3</text>
+            <text x="0" y="-66" text-anchor="middle">Nivel 2</text>
+            <text x="0" y="-22" text-anchor="middle">Nivel 1</text>
+          </g>
 
-            <iframe
-              src="./wheel.html"
-              title="Roata MDSF"
-              class="wheel-frame">
-            </iframe>
-          </div>
+          <g class="wheel-center">
+            <circle r="34"></circle>
+            <text x="0" y="-2" text-anchor="middle">MDSF</text>
+            <text x="0" y="15" text-anchor="middle" class="center-subtitle">15 parametri</text>
+          </g>
+        </svg>
+
+        <div id="wheelTooltip" class="wheel-tooltip" hidden></div>
+      </div>
+
+      <aside class="descriptor-panel">
+        <h3 id="descriptorTitle">Trece cu mouse-ul peste un segment</h3>
+        <p id="descriptorMeta" class="descriptor-meta">
+          Parametru + nivel
+        </p>
+        <div id="descriptorBody" class="descriptor-body">
+          Aici va apărea descriptorul complet pentru parametrul și nivelul selectat.
         </div>
+      </aside>
+    </div>
+  </div>
+</div>
+        
       </div>
 
       <div class="panel domain-content active" id="domain-leadership">
