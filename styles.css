@@ -400,6 +400,13 @@ footer {
   font-size: 0.92rem;
 }
 
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 @media (max-width: 1180px) {
   .grid, .wheel-wrap, .tool-steps { grid-template-columns: 1fr; }
   .section-grid, .two-layer { grid-template-columns: 1fr; }
