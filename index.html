@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moldova Digital School Framework – Resursă interactivă</title>
-  
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./scripts.js"></script>
 </head>
 <body>
   <header>
@@ -60,86 +61,16 @@
           <h2>Modelul de ansamblu</h2>
           <p style="color:var(--muted)">Modelul combină două idei: școala trebuie să îndeplinească anumite condiții minime, dar și să avanseze gradual prin niveluri de maturitate. În plus, se bazează pe autoevaluare în echipă, dovezi și planificare.</p>
 
-          <div class="wheel-wrap">
-            <div class="wheel-box">
-              <svg width="420" height="420" viewBox="0 0 420 420" aria-label="Roată conceptuală inspirată din SELFIE și DigitalMirror">
-                <!-- inele -->
-                <circle cx="210" cy="210" r="184" fill="#fafbff" stroke="#e0e6ef" stroke-width="2"/>
-                <circle cx="210" cy="210" r="148" fill="#ffffff" stroke="#e0e6ef" stroke-width="2"/>
-                <circle cx="210" cy="210" r="112" fill="#fafbff" stroke="#e0e6ef" stroke-width="2"/>
-                <circle cx="210" cy="210" r="76" fill="#ffffff" stroke="#e0e6ef" stroke-width="2"/>
-                <circle cx="210" cy="210" r="40" fill="#f0eef5" stroke="#d9ddea" stroke-width="2"/>
-
-                <!-- 4 sectoare clare -->
-                <path d="M210 210 L210 26 A184 184 0 0 1 394 210 Z" fill="#10ECD2" opacity="0.92"></path>
-                <path d="M210 210 L394 210 A184 184 0 0 1 210 394 Z" fill="#E51491" opacity="0.92"></path>
-                <path d="M210 210 L210 394 A184 184 0 0 1 26 210 Z" fill="#4C1C57" opacity="0.88"></path>
-                <path d="M210 210 L26 210 A184 184 0 0 1 210 26 Z" fill="#245262" opacity="0.92"></path>
-
-                <!-- raze -->
-                <line x1="210" y1="210" x2="210" y2="26" stroke="#ffffff" stroke-width="4"></line>
-                <line x1="210" y1="210" x2="394" y2="210" stroke="#ffffff" stroke-width="4"></line>
-                <line x1="210" y1="210" x2="210" y2="394" stroke="#ffffff" stroke-width="4"></line>
-                <line x1="210" y1="210" x2="26" y2="210" stroke="#ffffff" stroke-width="4"></line>
-
-                <!-- centru -->
-                <circle cx="210" cy="210" r="46" fill="rgba(255,255,255,0.92)" stroke="#d9ddea" stroke-width="2"></circle>
-                <text x="210" y="204" text-anchor="middle" font-size="22" font-weight="800" fill="#245262">MDSF</text>
-                <text x="210" y="224" text-anchor="middle" font-size="12.5" font-weight="600" fill="#5b6476">model integrat</text>
-
-                <!-- niveluri mutate pe marginea de sus pentru lizibilitate -->
-                <text x="210" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 5</text>
-                <text x="210" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 4</text>
-                <text x="210" y="114" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 3</text>
-                <text x="210" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 2</text>
-                <text x="210" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#362B2A">Nivel 1</text>
-
-                <!-- etichete reposiționate -->
-                <text x="210" y="90" text-anchor="middle" font-size="14" font-weight="800" fill="#0d302e">Predare și învățare</text>
-                <text x="318" y="186" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Competență</text>
-                <text x="318" y="204" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">digitală și</text>
-                <text x="318" y="222" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">capacitate</text>
-                <text x="318" y="240" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">profesională</text>
-                <text x="210" y="336" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Infrastructură, platforme</text>
-                <text x="210" y="354" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">și ecosistem digital</text>
-                <text x="98" y="186" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Conducere,</text>
-                <text x="98" y="204" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">guvernanță</text>
-                <text x="98" y="222" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">și managementul</text>
-                <text x="98" y="240" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">schimbării</text>
-              </svg>
+          <section id="wheelSection" style="display:none">
+            <div class="panel">
+              <h2>Roata MDSF</h2>
+              <iframe
+                src="./wheel.html"
+                title="Roata MDSF"
+                class="wheel-frame">
+              </iframe>
             </div>
-
-            <div class="wheel-legend">
-              <div class="legend-item">
-                <div class="dot" style="background:var(--c1)"></div>
-                <div>
-                  <strong>Domeniul 1</strong>
-                  <p>Conducere, guvernanță și managementul schimbării: direcție, viziune, echipă, date, ownership și planificare strategică.</p>
-                </div>
-              </div>
-              <div class="legend-item">
-                <div class="dot" style="background:var(--c2)"></div>
-                <div>
-                  <strong>Domeniul 2</strong>
-                  <p>Predare, învățare și evaluare: schimbarea pedagogică reală, nu doar utilizarea instrumentelor digitale.</p>
-                </div>
-              </div>
-              <div class="legend-item">
-                <div class="dot" style="background:var(--c4)"></div>
-                <div>
-                  <strong>Domeniul 3</strong>
-                  <p>Competență digitală și capacitate profesională: dezvoltarea profesorilor, elevilor și a echipei școlii.</p>
-                </div>
-              </div>
-              <div class="legend-item">
-                <div class="dot" style="background:var(--c3)"></div>
-                <div>
-                  <strong>Domeniul 4</strong>
-                  <p>Infrastructură, platforme și ecosistem digital: fundația tehnologică ce susține pedagogia și dezvoltarea instituțională.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </section>
 
           <div class="two-layer">
             <div class="layer-box">
